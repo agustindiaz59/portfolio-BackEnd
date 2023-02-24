@@ -1,0 +1,10 @@
+com\portfolio\api\ApiApplication.class
+com\portfolio\api\services\EducacionService.class
+com\portfolio\api\services\IEducacionService.class
+com\portfolio\api\controller\ApiController.class
+com\portfolio\api\services\PersonaService.class
+com\portfolio\api\services\IPersonaService.class
+com\portfolio\api\model\Educacion.class
+com\portfolio\api\repository\EducacionRepository.class
+com\portfolio\api\repository\PersonaRepository.class
+com\portfolio\api\model\Persona.class
