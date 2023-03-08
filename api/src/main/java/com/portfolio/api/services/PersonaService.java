@@ -19,15 +19,9 @@ public class PersonaService implements IPersonaService{
     }
 
     @Override
-    public List<Persona> traerPersonas() {
-        List<Persona> listPerso = persoRepo.findAll();
-        return listPerso;
-    }
-
-    @Override
-    public Persona encontrarPersona(long id) {
-        Persona perso = persoRepo.findById(id).orElse(null);
-        return perso;
+    public Persona traePersona(long id) {
+        Persona per = persoRepo.findById(id).orElse(null);
+        return per;
     }
 
     @Override

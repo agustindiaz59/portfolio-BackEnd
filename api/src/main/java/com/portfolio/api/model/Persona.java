@@ -22,11 +22,17 @@ public class Persona {
     @Column
     String email;
     @Column
+    String numero;
+    @Column
     String sobre_mi;
+    @Column
+    String info;
     @Column
     String ocupacion;
     @Column
     String banner;
     @Column
     String image_perfil;
+    @Column
+    String Ubicacion;
 }
