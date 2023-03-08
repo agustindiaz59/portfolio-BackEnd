@@ -2,6 +2,8 @@ com\portfolio\api\services\EducacionService.class
 com\portfolio\api\repository\ExperienciaRepository.class
 com\portfolio\api\services\IEducacionService.class
 com\portfolio\api\services\ProyectoService.class
+com\portfolio\api\services\ExperienciaService.class
+com\portfolio\api\services\IExperienciaService.class
 com\portfolio\api\controller\ApiController.class
 com\portfolio\api\services\PersonaService.class
 com\portfolio\api\repository\HabilidadesRepository.class
@@ -12,6 +14,7 @@ com\portfolio\api\model\Experiencia.class
 com\portfolio\api\ApiApplication.class
 com\portfolio\api\model\Habilidades.class
 com\portfolio\api\model\Proyecto.class
+com\portfolio\api\dto\Portfolio.class
 com\portfolio\api\repository\ProyectoRepository.class
 com\portfolio\api\services\IPersonaService.class
 com\portfolio\api\services\IProyectoService.class
