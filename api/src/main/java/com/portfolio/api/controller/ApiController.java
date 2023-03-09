@@ -41,6 +41,7 @@ public class ApiController {
     }
 
     @GetMapping("/datos")
+    @ResponseBody
     public Portfolio traerDatos(){
         Portfolio datos = new Portfolio();
         Portfolio port = this.port();
