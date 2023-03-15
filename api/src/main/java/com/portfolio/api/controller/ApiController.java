@@ -1,5 +1,7 @@
 package com.portfolio.api.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.portfolio.api.dto.Portfolio;
 import com.portfolio.api.model.Educacion;
 import com.portfolio.api.model.Experiencia;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class ApiController {
+public class ApiController{
     @Autowired
     private IEducacionService eduService;
     @Autowired
@@ -42,10 +44,15 @@ public class ApiController {
 
     @GetMapping("/datos")
     @ResponseBody
-    public Portfolio traerDatos(){
+    public String traerDatos()throws JsonProcessingException {
+
         Portfolio datos = new Portfolio();
         Portfolio port = this.port();
-        return port;
+
+        ObjectMapper objetMapper = new ObjectMapper();
+        String json = objetMapper.writeValueAsString(datos);
+
+        return json;
     }
     @PostMapping("/educacion/agregar")
     public Portfolio agregarEducacion(@RequestBody Educacion edu){
