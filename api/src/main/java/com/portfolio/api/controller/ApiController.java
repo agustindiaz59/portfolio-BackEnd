@@ -47,12 +47,15 @@ public class ApiController{
 
     @GetMapping("/datos")
     @ResponseBody
-    public Portfolio traerDatos(){
+    public String traerDatos() throws JsonProcessingException{
 
         Portfolio datos = new Portfolio();
         Portfolio port = this.port();
+        datos = port;
 
-        return datos;
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(datos);
+        return json;
     }
     @PostMapping("/educacion/agregar")
     public Portfolio agregarEducacion(@RequestBody Educacion edu){
