@@ -1,8 +1,6 @@
 package com.portfolio.api.controller;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.portfolio.api.dto.Portfolio;
 import com.portfolio.api.model.Educacion;
@@ -12,12 +10,10 @@ import com.portfolio.api.model.Proyecto;
 import com.portfolio.api.repository.EducacionRepository;
 import com.portfolio.api.repository.PersonaRepository;
 import com.portfolio.api.services.*;
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+@CrossOrigin(origins = {"http://localhost:4200","https://portfolio-frontend-275b9.web.app","https://portfolio-frontend-275b9.firebaseapp.com"})
 @RestController
 public class ApiController{
     @Autowired
