@@ -1,6 +1,5 @@
 package com.portfolio.api.controller;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.portfolio.api.dto.Portfolio;
@@ -27,64 +26,74 @@ public class ApiController{
     private IExperienciaService expService;
     @Autowired
     private PersonaRepository personaRepository;
-    long id = 1; //Solo responde a la primera persona, ya que no me interesa tener varias personas para un portfolio personal
     @Autowired
     private EducacionRepository educacionRepository;
     @Autowired
     private IUsuarioService userService;
-    private Portfolio port(){ //Al ser una accion recurrente creé un metodo
+    long id = 1; //Solo responde a la primera persona, ya que no me interesa tener varias personas para un portfolio personal
+    private String port() throws JsonProcessingException{ //Al ser una accion recurrente creé un metodo
         Portfolio datos = new Portfolio();
         datos.setPersona(persoService.traePersona(id));
         datos.setEducacion(eduService.getEducacion());
         datos.setProyectos(proyService.traerProyectos());
         datos.setTrabajos(expService.traerExperiencia());
         datos.setSkills(habService.traerHabilidades());
-        return datos;
+
+
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(datos);
+        return json;
     }
 
     @GetMapping("/datos")
     @ResponseBody
     public String traerDatos() throws JsonProcessingException{
 
-        Portfolio datos = new Portfolio();
-        Portfolio port = this.port();
-        datos = port;
-
-        ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(datos);
-        return json;
+        return this.port();
     }
     @PostMapping("/educacion/agregar")
-    public Portfolio agregarEducacion(@RequestBody Educacion edu){
+    public String agregarEducacion(@RequestBody Educacion edu)throws JsonProcessingException{
         eduService.setEducacion(edu);
 
-        Portfolio datos = new Portfolio();
-        Portfolio port = this.port();
-        return port;
+        return this.port();
+    }
+    @DeleteMapping("/educacion/borrar")
+    public String borrarEducacion(@RequestBody long id)throws JsonProcessingException{
+        eduService.deleteEducacion(id);
+        return this.port();
     }
     @PostMapping("/trabajo/agregar")
-    public Portfolio agregarTrabajo(@RequestBody Experiencia exp){
+    public String agregarTrabajo(@RequestBody Experiencia exp)throws JsonProcessingException{
         expService.crearExperiencia(exp);
 
-        Portfolio datos = new Portfolio();
-        Portfolio port = this.port();
-        return port;
+        return this.port();
+    }
+    @DeleteMapping("/trabajo/borrar")
+    public String borrarTrabajo(@RequestBody long id)throws JsonProcessingException{
+        expService.eliminarExperiencia(id);
+        return this.port();
     }
     @PostMapping("/skills/agregar")
-    public Portfolio agregarSkill(@RequestBody Habilidades hab){
+    public String agregarSkill(@RequestBody Habilidades hab)throws JsonProcessingException{
         habService.agregarHabilidad(hab);
 
-        Portfolio datos = new Portfolio();
-        Portfolio port = this.port();
-        return port;
+        return this.port();
+    }
+    @DeleteMapping("/skills/borrar")
+    public String borrarSkill(@RequestBody long indice)throws JsonProcessingException{
+        habService.eliminarHabilidad(indice);
+        return this.port();
     }
     @PostMapping("/proyecto/agregar")
-    public Portfolio agregarProyecto(@RequestBody Proyecto proy){
+    public String agregarProyecto(@RequestBody Proyecto proy)throws JsonProcessingException{
         proyService.crearProyecto(proy);
 
-        Portfolio datos = new Portfolio();
-        Portfolio port = this.port();
-        return port;
+        return this.port();
+    }
+    @DeleteMapping("/proyecto/borrar")
+    public String borrarProyecto(@RequestBody long id)throws JsonProcessingException{
+        proyService.eliminarProyecto(id);
+        return this.port();
     }
     @PostMapping("/authenticate")
     public String auth(@RequestBody Usuario user) throws JsonProcessingException{
@@ -98,7 +107,7 @@ public class ApiController{
         }
     }
     @PostMapping("/registro")
-    public void registrar(@RequestBody Usuario user){
+    public void registrar(@RequestBody Usuario user)throws JsonProcessingException{
         userService.darDeAlta(user);
     }
 
