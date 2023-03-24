@@ -87,13 +87,15 @@ public class ApiController{
         return port;
     }
     @PostMapping("/authenticate")
-    public Respuesta auth(@RequestBody Usuario user) throws JsonProcessingException{
+    public String auth(@RequestBody Usuario user) throws JsonProcessingException{
         Respuesta resp = new Respuesta();
-
+        ObjectMapper jsn = new ObjectMapper();
+        String json = jsn.writeValueAsString(resp);
         if(userService.iniciarSesion(user)){
-            return resp;
+            return json;
+        }else{
+            return null;
         }
-        return null;
     }
     @PostMapping("/registro")
     public void registrar(@RequestBody Usuario user){
