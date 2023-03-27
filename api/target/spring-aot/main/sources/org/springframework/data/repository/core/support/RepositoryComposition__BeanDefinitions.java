@@ -16,7 +16,7 @@ public class RepositoryComposition__BeanDefinitions {
    */
   public static class RepositoryFragments__BeanDefinitions {
     /**
-     * Get the bean instance supplier for 'jpa.EducacionRepository.fragments#0'.
+     * Get the bean instance supplier for 'jpa.PersonaRepository.fragments#0'.
      */
     private static BeanInstanceSupplier<RepositoryFragmentsFactoryBean> getFragmentsInstanceSupplier(
         ) {
@@ -37,7 +37,7 @@ public class RepositoryComposition__BeanDefinitions {
     }
 
     /**
-     * Get the bean instance supplier for 'jpa.ExperienciaRepository.fragments#0'.
+     * Get the bean instance supplier for 'jpa.EducacionRepository.fragments#0'.
      */
     private static BeanInstanceSupplier<RepositoryFragmentsFactoryBean> getFragmentsInstanceSupplier1(
         ) {
@@ -58,7 +58,7 @@ public class RepositoryComposition__BeanDefinitions {
     }
 
     /**
-     * Get the bean instance supplier for 'jpa.PersonaRepository.fragments#0'.
+     * Get the bean instance supplier for 'jpa.ExperienciaRepository.fragments#0'.
      */
     private static BeanInstanceSupplier<RepositoryFragmentsFactoryBean> getFragmentsInstanceSupplier2(
         ) {
@@ -79,7 +79,7 @@ public class RepositoryComposition__BeanDefinitions {
     }
 
     /**
-     * Get the bean instance supplier for 'jpa.IUsuarioRepository.fragments#0'.
+     * Get the bean instance supplier for 'jpa.HabilidadesRepository.fragments#0'.
      */
     private static BeanInstanceSupplier<RepositoryFragmentsFactoryBean> getFragmentsInstanceSupplier3(
         ) {
@@ -100,7 +100,7 @@ public class RepositoryComposition__BeanDefinitions {
     }
 
     /**
-     * Get the bean instance supplier for 'jpa.HabilidadesRepository.fragments#0'.
+     * Get the bean instance supplier for 'jpa.IUsuarioRepository.fragments#0'.
      */
     private static BeanInstanceSupplier<RepositoryFragmentsFactoryBean> getFragmentsInstanceSupplier4(
         ) {

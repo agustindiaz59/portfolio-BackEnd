@@ -6,6 +6,33 @@
   },
   {
     "interfaces": [
+      "com.portfolio.api.repository.PersonaRepository",
+      "org.springframework.aop.SpringProxy",
+      "org.springframework.aop.framework.Advised",
+      "org.springframework.core.DecoratingProxy"
+    ]
+  },
+  {
+    "interfaces": [
+      "com.portfolio.api.repository.PersonaRepository",
+      "org.springframework.data.repository.Repository",
+      "org.springframework.transaction.interceptor.TransactionalProxy",
+      "org.springframework.aop.framework.Advised",
+      "org.springframework.core.DecoratingProxy"
+    ]
+  },
+  {
+    "interfaces": [
+      "com.portfolio.api.repository.PersonaRepository",
+      "org.springframework.data.repository.Repository",
+      "org.springframework.transaction.interceptor.TransactionalProxy",
+      "org.springframework.aop.framework.Advised",
+      "org.springframework.core.DecoratingProxy",
+      "java.io.Serializable"
+    ]
+  },
+  {
+    "interfaces": [
       "com.portfolio.api.repository.EducacionRepository",
       "org.springframework.aop.SpringProxy",
       "org.springframework.aop.framework.Advised",
@@ -60,7 +87,7 @@
   },
   {
     "interfaces": [
-      "com.portfolio.api.repository.PersonaRepository",
+      "com.portfolio.api.repository.HabilidadesRepository",
       "org.springframework.aop.SpringProxy",
       "org.springframework.aop.framework.Advised",
       "org.springframework.core.DecoratingProxy"
@@ -68,7 +95,7 @@
   },
   {
     "interfaces": [
-      "com.portfolio.api.repository.PersonaRepository",
+      "com.portfolio.api.repository.HabilidadesRepository",
       "org.springframework.data.repository.Repository",
       "org.springframework.transaction.interceptor.TransactionalProxy",
       "org.springframework.aop.framework.Advised",
@@ -77,7 +104,7 @@
   },
   {
     "interfaces": [
-      "com.portfolio.api.repository.PersonaRepository",
+      "com.portfolio.api.repository.HabilidadesRepository",
       "org.springframework.data.repository.Repository",
       "org.springframework.transaction.interceptor.TransactionalProxy",
       "org.springframework.aop.framework.Advised",
@@ -105,33 +132,6 @@
   {
     "interfaces": [
       "com.portfolio.api.repository.IUsuarioRepository",
-      "org.springframework.data.repository.Repository",
-      "org.springframework.transaction.interceptor.TransactionalProxy",
-      "org.springframework.aop.framework.Advised",
-      "org.springframework.core.DecoratingProxy",
-      "java.io.Serializable"
-    ]
-  },
-  {
-    "interfaces": [
-      "com.portfolio.api.repository.HabilidadesRepository",
-      "org.springframework.aop.SpringProxy",
-      "org.springframework.aop.framework.Advised",
-      "org.springframework.core.DecoratingProxy"
-    ]
-  },
-  {
-    "interfaces": [
-      "com.portfolio.api.repository.HabilidadesRepository",
-      "org.springframework.data.repository.Repository",
-      "org.springframework.transaction.interceptor.TransactionalProxy",
-      "org.springframework.aop.framework.Advised",
-      "org.springframework.core.DecoratingProxy"
-    ]
-  },
-  {
-    "interfaces": [
-      "com.portfolio.api.repository.HabilidadesRepository",
       "org.springframework.data.repository.Repository",
       "org.springframework.transaction.interceptor.TransactionalProxy",
       "org.springframework.aop.framework.Advised",

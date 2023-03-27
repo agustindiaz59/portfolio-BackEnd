@@ -9,8 +9,8 @@ import org.springframework.beans.factory.support.InstanceSupplier;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.core.ResolvableType;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean;
-import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean__Autowiring3;
-import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean__PersistenceInjection3;
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean__Autowiring4;
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean__PersistenceInjection4;
 import org.springframework.data.repository.query.QueryLookupStrategy;
 
 /**
@@ -36,7 +36,7 @@ public class IUsuarioRepository__BeanDefinitions {
     beanDefinition.getConstructorArgumentValues().addIndexedArgumentValue(0, "com.portfolio.api.repository.IUsuarioRepository");
     beanDefinition.getPropertyValues().addPropertyValue("queryLookupStrategyKey", QueryLookupStrategy.Key.CREATE_IF_NOT_FOUND);
     beanDefinition.getPropertyValues().addPropertyValue("lazyInit", false);
-    beanDefinition.getPropertyValues().addPropertyValue("namedQueries", new RuntimeBeanReference("jpa.named-queries#3"));
+    beanDefinition.getPropertyValues().addPropertyValue("namedQueries", new RuntimeBeanReference("jpa.named-queries#4"));
     beanDefinition.getPropertyValues().addPropertyValue("repositoryFragments", new RuntimeBeanReference("jpa.IUsuarioRepository.fragments#0"));
     beanDefinition.getPropertyValues().addPropertyValue("transactionManager", "transactionManager");
     beanDefinition.getPropertyValues().addPropertyValue("entityManager", new RuntimeBeanReference("jpaSharedEM_entityManagerFactory"));
@@ -44,8 +44,8 @@ public class IUsuarioRepository__BeanDefinitions {
     beanDefinition.getPropertyValues().addPropertyValue("mappingContext", new RuntimeBeanReference("jpaMappingContext"));
     beanDefinition.getPropertyValues().addPropertyValue("enableDefaultTransactions", true);
     InstanceSupplier<JpaRepositoryFactoryBean> instanceSupplier = getIUsuarioRepositoryInstanceSupplier();
-    instanceSupplier = instanceSupplier.andThen(JpaRepositoryFactoryBean__PersistenceInjection3::apply);
-    instanceSupplier = instanceSupplier.andThen(JpaRepositoryFactoryBean__Autowiring3::apply);
+    instanceSupplier = instanceSupplier.andThen(JpaRepositoryFactoryBean__PersistenceInjection4::apply);
+    instanceSupplier = instanceSupplier.andThen(JpaRepositoryFactoryBean__Autowiring4::apply);
     beanDefinition.setInstanceSupplier(instanceSupplier);
     return beanDefinition;
   }
