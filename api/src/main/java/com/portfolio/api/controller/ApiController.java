@@ -33,12 +33,12 @@ public class ApiController{
     long id = 1; //Solo responde a la primera persona, ya que no me interesa tener varias personas para un portfolio personal
     private String port() throws JsonProcessingException{ //Al ser una accion recurrente creé un metodo
         Portfolio datos = new Portfolio();
+
         datos.setPersona(persoService.traePersona(id));
         datos.setEducacion(eduService.getEducacion());
         datos.setProyectos(proyService.traerProyectos());
         datos.setTrabajos(expService.traerExperiencia());
         datos.setSkills(habService.traerHabilidades());
-
 
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(datos);
@@ -57,8 +57,8 @@ public class ApiController{
 
         return this.port();
     }
-    @DeleteMapping("/educacion/borrar")
-    public String borrarEducacion(@RequestBody long id)throws JsonProcessingException{
+    @DeleteMapping("/educacion/borrar/{id}")
+    public String borrarEducacion(@PathVariable long id)throws JsonProcessingException{
         eduService.deleteEducacion(id);
         return this.port();
     }
@@ -68,8 +68,8 @@ public class ApiController{
 
         return this.port();
     }
-    @DeleteMapping("/trabajo/borrar")
-    public String borrarTrabajo(@RequestBody long id)throws JsonProcessingException{
+    @DeleteMapping("/trabajo/borrar/{id}")
+    public String borrarTrabajo(@PathVariable long id)throws JsonProcessingException{
         expService.eliminarExperiencia(id);
         return this.port();
     }
@@ -79,9 +79,9 @@ public class ApiController{
 
         return this.port();
     }
-    @DeleteMapping("/skills/borrar")
-    public String borrarSkill(@RequestBody long indice)throws JsonProcessingException{
-        habService.eliminarHabilidad(indice);
+    @DeleteMapping("/skills/borrar/{id}")
+    public String borrarSkill(@PathVariable long id)throws JsonProcessingException{
+        habService.eliminarHabilidad(id);
         return this.port();
     }
     @PostMapping("/proyecto/agregar")
@@ -90,8 +90,8 @@ public class ApiController{
 
         return this.port();
     }
-    @DeleteMapping("/proyecto/borrar")
-    public String borrarProyecto(@RequestBody long id)throws JsonProcessingException{
+    @DeleteMapping("/proyecto/borrar/{id}")
+    public String borrarProyecto(@PathVariable long id)throws JsonProcessingException{
         proyService.eliminarProyecto(id);
         return this.port();
     }
@@ -107,7 +107,7 @@ public class ApiController{
         }
     }
     @PostMapping("/registro")
-    public void registrar(@RequestBody Usuario user)throws JsonProcessingException{
+    public void registrar(@RequestBody Usuario user){
         userService.darDeAlta(user);
     }
 
