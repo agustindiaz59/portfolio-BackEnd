@@ -14,6 +14,7 @@ import com.portfolio.api.model.Respuesta;
 @CrossOrigin(origins = {"http://localhost:4200","https://portfolio-frontend-275b9.web.app","https://portfolio-frontend-275b9.firebaseapp.com"})
 @RestController
 public class ApiController{
+
     @Autowired
     private IEducacionService eduService;
     @Autowired
