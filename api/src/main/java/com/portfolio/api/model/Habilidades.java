@@ -10,7 +10,7 @@ import lombok.Setter;
 public class Habilidades {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int id;
+    long id;
     @Column
     String nombre_hab;
     @Column

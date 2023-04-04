@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.portfolio.api.model.Respuesta;
 
-@CrossOrigin(origins = {"http://localhost:4200","https://portfolio-frontend-275b9.web.app","https://portfolio-frontend-275b9.firebaseapp.com"})
 @RestController
 public class ApiController{
 
@@ -46,12 +45,14 @@ public class ApiController{
         return json;
     }
 
+    @CrossOrigin
     @GetMapping("/datos")
     @ResponseBody
     public String traerDatos() throws JsonProcessingException{
 
         return this.port();
     }
+    @CrossOrigin
     @PostMapping("/educacion/agregar")
     public String agregarEducacion(@RequestBody Educacion edu)throws JsonProcessingException{
         eduService.setEducacion(edu);
@@ -63,39 +64,46 @@ public class ApiController{
         eduService.deleteEducacion(id);
         return this.port();
     }
+    @CrossOrigin
     @PostMapping("/trabajo/agregar")
     public String agregarTrabajo(@RequestBody Experiencia exp)throws JsonProcessingException{
         expService.crearExperiencia(exp);
 
         return this.port();
     }
+    @CrossOrigin
     @DeleteMapping("/trabajo/borrar/{id}")
     public String borrarTrabajo(@PathVariable long id)throws JsonProcessingException{
         expService.eliminarExperiencia(id);
         return this.port();
     }
+    @CrossOrigin
     @PostMapping("/skills/agregar")
     public String agregarSkill(@RequestBody Habilidades hab)throws JsonProcessingException{
         habService.agregarHabilidad(hab);
 
         return this.port();
     }
+    @CrossOrigin
     @DeleteMapping("/skills/borrar/{id}")
     public String borrarSkill(@PathVariable long id)throws JsonProcessingException{
         habService.eliminarHabilidad(id);
         return this.port();
     }
+    @CrossOrigin
     @PostMapping("/proyecto/agregar")
     public String agregarProyecto(@RequestBody Proyecto proy)throws JsonProcessingException{
         proyService.crearProyecto(proy);
 
         return this.port();
     }
+    @CrossOrigin
     @DeleteMapping("/proyecto/borrar/{id}")
     public String borrarProyecto(@PathVariable long id)throws JsonProcessingException{
         proyService.eliminarProyecto(id);
         return this.port();
     }
+    @CrossOrigin
     @PostMapping("/authenticate")
     public String auth(@RequestBody Usuario user) throws JsonProcessingException{
         Respuesta resp = new Respuesta();
@@ -107,6 +115,7 @@ public class ApiController{
             return null;
         }
     }
+    @CrossOrigin
     @PostMapping("/registro")
     public void registrar(@RequestBody Usuario user){
         userService.darDeAlta(user);
