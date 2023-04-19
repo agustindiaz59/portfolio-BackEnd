@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.util.List;
 @Getter@Setter
-public class Portfolio {
+public class Portfolio{
     Persona persona;
     List<Educacion> educacion;
     List<Experiencia> trabajos;

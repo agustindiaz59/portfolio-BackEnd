@@ -19,8 +19,7 @@ public class ProyectoService implements IProyectoService{
 
     @Override
     public List<Proyecto> traerProyectos() {
-        List<Proyecto> list = repo.findAll();
-        return list;
+        return repo.findAll();
     }
 
     @Override

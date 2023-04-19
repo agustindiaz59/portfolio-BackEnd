@@ -24,13 +24,13 @@ public class HabilidadesService implements IHabilidadesService {
 
     @Override
     public List<Habilidades> traerHabilidades() {
-        List<Habilidades> lista = repo.findAll();
-        return lista;
+        return repo.findAll();
     }
 
     @Override
     public void editarHabilidad(long id, Habilidades hab) {
         Habilidades edit = repo.findById(id).orElse(null);
+        assert edit != null;
         edit.setNombre_hab(hab.getNombre_hab());
         edit.setPorcentaje(hab.getPorcentaje());
         repo.save(edit);

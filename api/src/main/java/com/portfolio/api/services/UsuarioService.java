@@ -24,11 +24,7 @@ public class UsuarioService implements IUsuarioService{
         List<Usuario> lista = repo.findAll();
         boolean auth = false;
         for(Usuario elemento:lista){
-            if(elemento.getEmail().equals(user.getEmail()) && elemento.getContraseña().equals(user.getContraseña())){
-                auth = true;
-            }else{
-                auth = false;
-            }
+            auth = elemento.getEmail().equals(user.getEmail()) && elemento.getContraseña().equals(user.getContraseña());
         }
         return auth;
     }

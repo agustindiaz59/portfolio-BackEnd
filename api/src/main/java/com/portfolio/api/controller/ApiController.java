@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.portfolio.api.dto.Portfolio;
 import com.portfolio.api.model.*;
-import com.portfolio.api.repository.EducacionRepository;
-import com.portfolio.api.repository.PersonaRepository;
 import com.portfolio.api.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +23,6 @@ public class ApiController{
     @Autowired
     private IExperienciaService expService;
     @Autowired
-    private PersonaRepository personaRepository;
-    @Autowired
-    private EducacionRepository educacionRepository;
-    @Autowired
     private IUsuarioService userService;
     long id = 1; //Solo responde a la primera persona, ya que no me interesa tener varias personas para un portfolio personal
     private String port() throws JsonProcessingException{ //Al ser una accion recurrente creé un metodo
@@ -41,15 +35,41 @@ public class ApiController{
         datos.setSkills(habService.traerHabilidades());
 
         ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(datos);
-        return json;
+        return mapper.writeValueAsString(datos);
     }
+    @CrossOrigin
+    @PatchMapping("/persona/about")
+    public String editarAbout(@RequestBody Persona per) throws JsonProcessingException {
+        persoService.editarAbout(per);
+
+        return port();
+    }
+    @CrossOrigin
+    @PatchMapping("/persona/perfil")
+    public String editarPerfil(@RequestBody Persona per) throws JsonProcessingException {
+        persoService.editarPerfil(per);
+
+        return port();
+    }
+    @CrossOrigin
+    @PatchMapping("/persona/banner")
+    public String editarBanner(@RequestBody Persona per) throws JsonProcessingException {
+        persoService.editarBanner(per);
+
+        return port();
+    }
+    @CrossOrigin
+    @PatchMapping("/persona/info")
+    public String editarInfo(@RequestBody Persona per) throws JsonProcessingException {
+        persoService.editarInfo(per);
+
+        return port();
+    }//puedo intentar recibir un string y transformarlo a objeto con objetwrapper
 
     @CrossOrigin
     @GetMapping("/datos")
     @ResponseBody
     public String traerDatos() throws JsonProcessingException{
-
         return this.port();
     }
     @CrossOrigin
@@ -120,5 +140,4 @@ public class ApiController{
     public void registrar(@RequestBody Usuario user){
         userService.darDeAlta(user);
     }
-
 }

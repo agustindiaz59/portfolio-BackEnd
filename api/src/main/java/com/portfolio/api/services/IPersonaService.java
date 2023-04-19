@@ -2,10 +2,10 @@ package com.portfolio.api.services;
 
 import com.portfolio.api.model.Persona;
 
-import java.util.List;
-
 public interface IPersonaService {
-    public Persona crearPersona(Persona per);
-    public Persona traePersona(long id);
-    public List<Persona> eliminarPersona(long id);
+    Persona traePersona(long id);
+    void editarAbout(Persona per);
+    void editarPerfil(Persona per);
+    void editarBanner(Persona per);
+    void editarInfo(Persona per);
 }
