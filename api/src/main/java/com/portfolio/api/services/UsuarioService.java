@@ -13,18 +13,19 @@ public class UsuarioService implements IUsuarioService{
     private IUsuarioRepository repo;
     @Override
     public void darDeAlta(Usuario user) {
-        Usuario us = new Usuario();
-        us.setEmail(user.getEmail());
-        us.setContraseña(user.getContraseña());
-        repo.save(us);
+        repo.save(user);
     }
 
     @Override
     public boolean iniciarSesion(Usuario user) {
         List<Usuario> lista = repo.findAll();
         boolean auth = false;
+
         for(Usuario elemento:lista){
-            auth = elemento.getEmail().equals(user.getEmail()) && elemento.getContraseña().equals(user.getContraseña());
+            if (elemento.getEmail().equals(user.getEmail()) && elemento.getContraseña().equals(user.getContraseña())) {
+                auth = true;
+                break;
+            }
         }
         return auth;
     }

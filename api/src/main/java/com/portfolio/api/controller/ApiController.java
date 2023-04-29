@@ -55,17 +55,14 @@ public class ApiController{
     @PatchMapping("/persona/banner")
     public String editarBanner(@RequestBody Persona per) throws JsonProcessingException {
         persoService.editarBanner(per);
-
         return port();
     }
     @CrossOrigin
     @PatchMapping("/persona/info")
     public String editarInfo(@RequestBody Persona per) throws JsonProcessingException {
         persoService.editarInfo(per);
-
         return port();
-    }//puedo intentar recibir un string y transformarlo a objeto con objetwrapper
-
+    }
     @CrossOrigin
     @GetMapping("/datos")
     @ResponseBody
@@ -126,9 +123,8 @@ public class ApiController{
     @CrossOrigin
     @PostMapping("/authenticate")
     public String auth(@RequestBody Usuario user) throws JsonProcessingException{
-        Respuesta resp = new Respuesta();
         ObjectMapper jsn = new ObjectMapper();
-        String json = jsn.writeValueAsString(resp);
+        String json = jsn.writeValueAsString(new Respuesta());
         if(userService.iniciarSesion(user)){
             return json;
         }else{
