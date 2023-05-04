@@ -76,6 +76,7 @@ public class ApiController{
 
         return this.port();
     }
+    @CrossOrigin
     @DeleteMapping("/educacion/borrar/{id}")
     public String borrarEducacion(@PathVariable long id)throws JsonProcessingException{
         eduService.deleteEducacion(id);
