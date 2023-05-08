@@ -26,4 +26,10 @@ public class ExperienciaService implements IExperienciaService{
         repo.deleteById(id);
         return repo.findAll();
     }
+
+    @Override
+    public void editarExperiencia(Experiencia exp) {
+        repo.deleteById(exp.getId());
+        repo.save(exp);
+    }
 }

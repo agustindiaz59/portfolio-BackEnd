@@ -137,4 +137,28 @@ public class ApiController{
     public void registrar(@RequestBody Usuario user){
         userService.darDeAlta(user);
     }
+    @CrossOrigin
+    @PutMapping("/editar/educacion")
+    public String editar(@RequestBody Educacion edu) throws JsonProcessingException {
+        eduService.editarEducacion(edu);
+        return port();
+    }
+    @CrossOrigin
+    @PutMapping("/editar/proyecto")
+    public String editar(@RequestBody Proyecto proy) throws JsonProcessingException {
+        proyService.editarProyecto(proy);
+        return port();
+    }
+    @CrossOrigin
+    @PutMapping("/editar/experiencia")
+    public String editar(@RequestBody Experiencia exp) throws JsonProcessingException {
+        expService.editarExperiencia(exp);
+        return port();
+    }
+    @CrossOrigin
+    @PutMapping("/editar/habilidad")
+    public String editar(@RequestBody Habilidades hab) throws JsonProcessingException {
+        habService.editarHabilidad(hab);
+        return port();
+    }
 }

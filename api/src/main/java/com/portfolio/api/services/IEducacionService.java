@@ -8,5 +8,5 @@ public interface IEducacionService{
     List<Educacion> getEducacion();
     void setEducacion(Educacion edu);
     void deleteEducacion(long id);
-    Educacion findEducacion( long id);
+    void editarEducacion(Educacion edu);
 }

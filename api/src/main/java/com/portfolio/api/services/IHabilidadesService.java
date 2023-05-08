@@ -8,5 +8,5 @@ public interface IHabilidadesService {
     void agregarHabilidad(Habilidades hab);
     List<Habilidades> traerHabilidades();
     void eliminarHabilidad(long id);
-    void editarHabilidad(long id,Habilidades hab);
+    void editarHabilidad(Habilidades hab);
 }

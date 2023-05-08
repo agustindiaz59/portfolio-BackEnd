@@ -7,6 +7,6 @@ import java.util.List;
 public interface IProyectoService {
     void crearProyecto(Proyecto proy);
     List<Proyecto> traerProyectos();
-    void editarProyecto(long id, Proyecto proy);
+    void editarProyecto(Proyecto proy);
     void eliminarProyecto(long id);
 }

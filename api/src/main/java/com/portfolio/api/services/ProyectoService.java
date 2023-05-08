@@ -23,8 +23,9 @@ public class ProyectoService implements IProyectoService{
     }
 
     @Override
-    public void editarProyecto(long id, Proyecto proy) {
-
+    public void editarProyecto(Proyecto proy) {
+        repo.deleteById(proy.getId());
+        repo.save(proy);
     }
 
     @Override
